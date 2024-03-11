@@ -45,9 +45,7 @@ class Wav2Vec2Wrapper(nn.Module):
         self.wav2vec2_sample_rate = pretrained_model.sample_rate
         self.trim_unused_layers = trim_unused_layers
 
-        self.wav2vec2: Wav2Vec2Model = Wav2Vec2Model.from_pretrained(
-            self.name, local_files_only=True
-        )
+        self.wav2vec2: Wav2Vec2Model = Wav2Vec2Model.from_pretrained(self.name)
         assert isinstance(
             self.wav2vec2, Wav2Vec2Model
         ), "Wav2Vec2Model initialization failed"
